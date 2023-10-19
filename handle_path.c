@@ -4,19 +4,19 @@
  * handle_path - handling the PATH
  * @obo: command to be handled
  *
- * Return: path on success & NULL if
+ * Return: full path om success & NULL if
  * there is error
  */
 char *handle_path(char *obo)
 {
 	char *path = getenv("PATH");
 	char *dir = strtok(path, ":");
-	char *full_path = malloc(strlen_obo(dir) + strlen_obo(obo) + 2);
+	char *full_path = malloc(sizeof(char) * PATH_MAX_LENGTH);
 	char *obo_cpy;
 
 	if (access(obo, X_OK) == 0)
 	{
-		obo_cpy = strdup(obo);
+		obo_cpy = strdup_obo(obo);
 		return (obo_cpy);
 	}
 

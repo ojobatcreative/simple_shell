@@ -1,23 +1,23 @@
 #include "oboshell.h"
 
 /**
- *strdup_obo - Entry to the function
- *@s: a pointer to a cosntant string
- *Return: new copied string
- */
+  *strdup_obo - Entry to the function
+  *@s: a points to a cosnt. string
+  *Return: new copied string
+  */
 
 char *strdup_obo(char *s)
 {
 	size_t lgt = strlen_obo(s) + 1;
-	char *fresh_s = malloc(lgt);
+	char *n_s = malloc(lgt);
 
-	if (fresh_s == NULL)
+	if (n_s == NULL)
 	{
 		perror("malloc error");
 		return (NULL);
 	}
 
-	strcpy_obo(fresh_s, s);
+		strcpy_obo(n_s, s);
 
-	return (fresh_s);
+		return (n_s);
 }

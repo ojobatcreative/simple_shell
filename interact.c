@@ -11,7 +11,7 @@ void signal_handle(int sig)
 		write(1, "\n(OBOshell) $: ", 14);
 }
 /**
- * interact_mode - Entry point itno the shell
+ * interact_mode - Enter the shell
  *
  * Return: always 0 (success)
   */
@@ -35,8 +35,7 @@ void interact_mode(void)
 			write(1, "Exiting...\n", 12);
 			exit(0);
 		}
-		args = tokenize_line(read);
-
+		args = tokenize_line(read, nread);
 		process_obo(args);
 
 		free(args);

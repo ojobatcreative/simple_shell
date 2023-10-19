@@ -2,16 +2,16 @@
 
 /**
   *strlen_obo - Entry to the function
-  *@string: points to a string
+  *@strg: pointer to a strg
   *Return: the initial counter
   */
 
-int strlen_obo(char *string)
+int strlen_obo(char *strg)
 {
-	int start = 0;
+	int begin = 0;
 
-	while (string[start] != '\0')
-		start++;
+	while (strg[begin] != '\0')
+		begin++;
 
-	return (start);
+	return (begin);
 }

@@ -1,12 +1,11 @@
 #include "oboshell.h"
 
 /**
- *atoi_obo - converts a string to an integer
- *@str: string is inputed here
+ * atoi_obo - converts any string to an integer
+ * @str: string input
  *
- *Return: integer number
-*/
-
+ * Return: integer
+ */
 int atoi_obo(char *str)
 {
 	char tc;
@@ -33,7 +32,9 @@ int atoi_obo(char *str)
 	{
 		n *= -1;
 	}
+
 	if (tj == null)
 		return (0);
+
 	return (n);
 }

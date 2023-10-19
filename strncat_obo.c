@@ -1,10 +1,10 @@
 #include "oboshell.h"
 
 /**
-  *strncat_obo - Entry point to the code
+  *strncat_obo - Entry to the code
   *@flat: place where the source string is appended
   *@source: the source
-  *@number: number untill source
+  *@number: number unto the source
   *Return: pointer to flat
   */
 char *strncat_obo(char *flat, char *source, int number)
@@ -16,5 +16,6 @@ char *strncat_obo(char *flat, char *source, int number)
 	{
 		flat[lgt] = source[tx];
 	}
+
 	return (flat);
 }

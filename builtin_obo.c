@@ -1,10 +1,9 @@
 #include "oboshell.h"
-
 /**
- * get_obo_func - Entry to the function
- * @s: a pointer to the string
-i * Return: Always 0 (success)
- */
+  *get_obo_func - Entry to the function
+  *@s: a pointer to the string
+  *Return: Always 0 (success)
+  */
 
 int (*get_obo_func(char *s))(char **)
 {
@@ -15,6 +14,9 @@ int (*get_obo_func(char *s))(char **)
 		{NULL, NULL}
 	};
 	int ti = 0;
+
+	if (s == NULL || strlen_obo(s) == 0)
+		return (NULL);
 
 	while (built[ti].obo != NULL && strcmp_obo(built[ti].obo, s) != 0)
 		ti++;
@@ -59,12 +61,12 @@ int env_obo(char **args)
 	{
 		printf("%s\n", environ[ti]);
 	}
-	return (0);
+	return (1);
 }
 
 
 /**
- * cd_obo - this is used for changing directory
+ * cd_obo - command use for changing directory
  * @args: arguments comprises of command and directory
  *
  * Return: 0 to indicate successful execution
@@ -74,21 +76,21 @@ int cd_obo(char **args)
 	char *prvDir;
 	const char *path;
 	char crntDir[PATH_MAX_LENGTH];
-	int rtrn_val;
+	int rVal;
 
 	if (args[1] == NULL)
 	{
-		rtrn_val = chdir(getenv("HOME"));
+		rVal = chdir(getenv("HOME"));
 	}
 	else if (args[1] != NULL)
 	{
 		path = args[1];
-		rtrn_val = chdir(path);
+		rVal = chdir(path);
 
 		if (strcmp_obo(args[1], "-") == 0)
 		{
 			prvDir = getenv("OLDPWD");
-			rtrn_val = chdir(prvDir);
+			rVal = chdir(prvDir);
 		}
 	}
 	else
@@ -97,17 +99,18 @@ int cd_obo(char **args)
 		return (1);
 	}
 
-	if (rtrn_val != -1)
+	if (rVal != -1)
 	{
 		getcwd(crntDir, sizeof(crntDir));
 		setenv("OLDPWD", getenv("PWD"), 1);
 		setenv("PWD", crntDir, 1);
 	}
-	else if (rtrn_val == -1)
+	else if (rVal == -1)
 	{
 		perror("hsh");
 		return (1);
 	}
 
 	return (0);
+
 }

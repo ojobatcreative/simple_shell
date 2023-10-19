@@ -2,17 +2,17 @@
 
 /**
   *strcmp_obo - Entry point
-  *@string1: pointer to the first string
-  *@string2: pointer to the second sting
+  *@strg1: pointer to the first string
+  *@strg2: pointer to the second sting
   *Return: differnece
   */
 
-int strcmp_obo(const char *string1, const char *string2)
+int strcmp_obo(char *strg1, char *strg2)
 {
-	while (*string1 == *string2 && (*string1 != '\0' && *string2 != '\0'))
+	while (*strg1 == *strg2 && (*strg1 != '\0' && *strg2 != '\0'))
 	{
-		string1++;
-		string2++;
+		strg1++;
+		strg2++;
 	}
-	return (*string1 - *string2);
+	return (*strg1 - *strg2);
 }

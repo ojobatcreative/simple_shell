@@ -1,5 +1,5 @@
-#ifndef OBOSHELL_H
-#define OBOSHELL_H
+#ifndef DSHELL_H
+#define DSHELL_H
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -8,10 +8,7 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <unistd.h>
-
-typedef int boolean;
-#define true 1
-#define false 0
+#include <signal.h>
 
 #define MAX_LINE 256
 #define PATH_MAX_LENGTH 1024
@@ -24,38 +21,45 @@ typedef int boolean;
  * @f: The function associated
  */
 
-typedef struct
+typedef struct obo
 {
-        const char *obo;
-        int (*f)(char **args);
+	char *obo;
+	int (*f)(char **args);
 } builtinobo;
 
-
-char *getline_obo(void);
-int check_delim(const char *delim, char c);
-char *strtok_obo(char *str, const char *delim);
-int atoi_obo(char *str);
-int strlen_obo(char *string);
+extern char **environ;
 int (*get_obo_func(char *s))(char **);
+int process_obo(char **args);
+int process_mode(char **args, char *read);
+int execute_obo(char **args);
+char *handle_path(char *cmd);
+
+
 int exit_obo(char **args);
 int env_obo(char **args);
 int cd_obo(char **args);
-int execute_obo(char **args);
-char *handle_path(char *obo);
-void interact_mode(void);
-char **inputDefiner(char *text_cpy, ssize_t read_len);
-int process_obo(char **args);
 char *strcat_obo(char *dest, const char *src);
 
-int strcmp_obo(const char *string1, const char *string2);
+//int strcmp_obo(char *stringa, char *stringb);
 
-char *strcpy_obo(char *flat, char *source);
-char *strdup_obo(char *s);
-int strlen_obo(char *string);
+int strcmp_obo(char *string1, char *string2);
+
+//int strlen_obo(char *string);
+
+int strlen_obo(char *strg);
+
 char *strncat_obo(char *flat, char *source, int number);
-char **tokenize_line(char *read);
+char *strdup_obo(char *s);
+char *strcpy_obo(char *flat, char *source);
 
-char **tokenize(const char *input);
-extern char **environ;
+
+void process_file(char *file);
+void interact_mode(void);
+char **tokenize_line(char *input, ssize_t read_line);
+int atoi_obo(char *str);
+int execute_mode(char **args, char *read);
+void signal_handle(int sig);
+void handle_multiString(char **args, char *argv);
+
 
 #endif

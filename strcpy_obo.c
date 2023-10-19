@@ -14,6 +14,7 @@ char *strcpy_obo(char *flat, char *source)
 
 	while (source[lgt] != '\0')
 		lgt++;
+
 	for (tx = 0; tx <= lgt; tx++)
 		flat[tx] = source[tx];
 
