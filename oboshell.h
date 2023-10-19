@@ -20,7 +20,7 @@
  * @obo: The command
  * @f: The function associated
  */
-
+o
 typedef struct obo
 {
 	char *obo;
