@@ -8,7 +8,7 @@
 void signal_handle(int sig)
 {
 	if (sig == SIGINT)
-		write(1, "\n(OBOshell) $: ", 14);
+		write(1, "\n(OBOshell)$: ", 14);
 }
 /**
  * interact_mode - Enter the shell
