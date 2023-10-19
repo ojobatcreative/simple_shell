@@ -39,7 +39,7 @@ int exit_obo(char **args);
 int env_obo(char **args);
 int cd_obo(char **args);
 char *strcat_obo(char *dest, const char *src);
-int strcmp_obo(char *string1, char *string2);
+int strcmp_obo(char *strg1, char *strg2);
 int strlen_obo(char *strg);
 
 char *strncat_obo(char *flat, char *source, int number);
