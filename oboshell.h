@@ -20,7 +20,7 @@
  * @obo: The command
  * @f: The function associated
  */
-o
+
 typedef struct obo
 {
 	char *obo;
@@ -40,7 +40,6 @@ char *strdup_obo(char *s);
 char *strcpy_obo(char *flat, char *source);
 char **tokenize_line(char *input, ssize_t read_line);
 char *strcat_obo(char *dest, const char *src);
-
 
 int exit_obo(char **args);
 int env_obo(char **args);
