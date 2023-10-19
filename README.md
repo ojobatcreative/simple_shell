@@ -46,4 +46,4 @@ OBOShell is structured as a collection of C functions that provide various shell
 - Interactive mode: interact_mode handles interactive shell behavior.
 - Tokenization: tokenize_line splits command lines into tokens.
 
-#YOU ARE WELCOME :)
+# YOU ARE WELCOME
