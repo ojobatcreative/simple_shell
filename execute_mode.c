@@ -10,7 +10,7 @@
 int execute_mode(char **args, char *read)
 {
 	pid_t pid = fork();
-	int stats;
+	int status;
 	char *full_path;
 
 	if (args == NULL || args[0] == NULL)
@@ -44,8 +44,8 @@ int execute_mode(char **args, char *read)
 	}
 	else
 	{
-		waitpid(pid, &stats, 0);
-		if (WIFEXITED(stats) && WEXITSTATUS(stats) == 127)
+		waitpid(pid, &status, 0);
+		if (WIFEXITED(status) && WEXITSTATUS(status) == 127)
 			exit(127);
 	}
 	return (127);

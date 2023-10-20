@@ -54,4 +54,7 @@ void interact_mode(void);
 void signal_handle(int sig);
 void handle_multiString(char **args, char *argv);
 
+void unsetenv_obo(char *name);
+void setenv_obo(char *name, char *value);
+
 #endif
